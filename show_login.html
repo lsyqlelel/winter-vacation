@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录页面</title>
+    <style type="text/css">
+        .main{
+            width:300px;
+            height:200px;
+            margin:0 auto;
+            margin-top:150px;
+        }
+        .title{font-size: 28px;font-weight: 300;}
+        .div-input{display: flex;flex-direction: column;border: 5px;}
+        .input-username{width: 344px;height: 34px;margin: 2.5px 0;text-indent: 10px;}
+        .input-password{width:344px;height: 34px;margin: 2.5px 0;text-indent: 10px;}
+        .input-submit{width:344px;height:34px;margin-top: 5px}
+        .info{font-size: 14px;color:red;margin:2px 5px;width:100%;text-align: right;}
+    </style>
+    <script type="text/javascript">
+        function check(){
+            var canLogin=false;
+            var username=document.getElementById("username").value;
+            var password=document.getElementById("password").value;
+            if(username==""||username=="请输入账号"){
+                document.getElementById("acc").innerHTML="账号不得为空!";
+            }else{
+                document.getElementById("acc").innerHTML="";
+                if(password==""||password=="请输入密码"){
+                    document.getElementById("pas").innerHTML="密码不得为空";
+                }else{
+                    document.getElementById("pas").innerHTML="";
+                    canLogin=true;
+                }
+            }
+            return canLogin;
+        }
+    </script>
+</head>
+<body>
+<div class="main">
+    <font size="7" color="orange">网上商城</font></br>
+    <div><h1 class="title">登录</h1></div>
+    <form action="loginjudge.php" method="post"  onsubmit="return check();">
+        <div><input class="input-username" type="text" name="username" id="username" value="请输入账号" onclick="disappear('username')" onblur="judge('username','请输入账号')"></div>
+        <div class="info" id="acc"></div>
+        <div><input class="input-password" type="text" name="password" id="password" value="请输入密码" onclick="disappear('password')" onblur="judge('password','请输入密码')"></div>
+        <div class="info" id="pas"></div>
+        <input class="input-submit" type="submit" value="登录"/>
+    </form>
+    <a href='show_register.html'>注册</a>
+</div>
+</body>
+
+<script>
+    function disappear(p)
+    {
+        document.getElementById(p).value="";
+    }
+    function judge(id,text)
+    {
+        var x=document.getElementById(id).value;
+        if(x=="")
+            document.getElementById(id).value=text;
+    }
+</script>
+</html>

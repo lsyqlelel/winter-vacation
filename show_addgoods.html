@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加商品</title>
+    <style type="text/css">
+        .main{
+            width:400px;
+            height:200px;
+            margin:0 auto;
+            margin-top:150px;
+        }
+        .title{font-size: 28px;font-weight: 300;}
+        .div-input{display: flex;flex-direction: column;border: 5px;}
+        .input-username{width: 344px;height: 34px;margin: 2.5px 0;text-indent: 10px;}
+        .input-password{width:344px;height: 34px;margin: 2.5px 0;text-indent: 10px;}
+        .input-submit{width:344px;height:34px;margin-top: 5px}
+        .info{font-size: 14px;color:red;margin:2px 5px;width:100%;text-align: right;}
+    </style>
+</head>
+<body>
+<div class="main">
+    <div><h1 class="title">添加商品</h1></div>
+    <form action="addgoods.php" name="form" method="post" enctype="multipart/form-data">
+        <p>商品图片：<input type="file" name="file" /></p>
+        <div><input class="input-username" type="text" name="goodsname" id="goodsname" value="请输入商品名称" onclick="disappear('goodsname')" onblur="judge('goodsname','请输入商品名称')"></div>
+        <div><input class="input-username" type="text" name="price" id="price"  value="请输入商品价格" onclick="disappear('price')" onblur="judge('price','请输入商品价格')"></div>
+        选择商品类型：</br>
+        <label for="A">电子</label>
+        <input type="radio" name="category" checked ="checked" value = "A" />
+        <br/>
+        <label for="B">服装</label>
+        <input type="radio" name="category" value = "B" />
+        </br>
+        <label for="C">食品</label>
+        <input type="radio" name="category" value = "C" />
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
+    <a href='show_manager.html'>返回</a>
+</div>
+
+<script>
+    function disappear(p)
+    {
+        document.getElementById(p).value="";
+    }
+    function judge(id,text)
+    {
+        var x=document.getElementById(id).value;
+        if(x=="")
+            document.getElementById(id).value=text;
+    }
+    function add_shop()
+    {
+        var x=document.getElementById("picture").value;
+        var pict=document.getElementById("pict").setAttribute('src',x);
+
+    }
+</script>
+</body>
+</html>
+
